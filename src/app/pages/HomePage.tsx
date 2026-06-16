@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, MapPin, DollarSign, Users, Sparkles } from "lucide-react";
+import { Search, MapPin, DollarSign, Users, Sparkles , Zap } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { PGCard } from "../components/PGCard";
 import { ChatAssistant } from "../components/ChatAssistant";
@@ -10,6 +10,26 @@ import { Footer } from "../components/Footer";
 import { mockPGs } from "../data/mockData";
 
 export function HomePage() {
+  const steps = [
+    {
+      icon: Search,
+      title: "Input Preferences",
+      description:
+        "Tell us your budget, preferred location, amenities, and room requirements.",
+    },
+    {
+      icon: Sparkles,
+      title: "AI Matching",
+      description:
+        "Our AI analyzes thousands of verified PG listings and finds the best matches.",
+    },
+    {
+      icon: Zap,
+      title: "Smart Results",
+      description:
+        "Receive personalized recommendations ranked by AI.",
+    },
+  ];
   const [location, setLocation] = useState("");
   const [budget, setBudget] = useState("");
   const [gender, setGender] = useState("Any");
@@ -28,13 +48,13 @@ export function HomePage() {
 
       <section className="relative bg-gradient-to-br from-[#2563EB] via-[#4F46E5] to-[#6366F1] text-white py-20 overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00em0wIDE2YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00ek0yMCAzNGMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHptMCAxNmMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHpNNCAzNGMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHptMCAxNmMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm mb-6 border border-white/20">
             <Sparkles className="w-4 h-4" />
             <span>Powered by Advanced AI Technology</span>
           </div>
-          
+
           <h1 className="text-5xl mb-4">Find Your Perfect PG with AI</h1>
           <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
             Smart recommendations powered by AI to help you find the best PG that matches your needs
@@ -103,7 +123,12 @@ export function HomePage() {
         </div>
       </section>
 
-      <HowItWorks />
+      <HowItWorks
+        badge="AI Powered Process"
+        heading="How SmartPG Works"
+        subheading="Find your ideal PG effortlessly with our intelligent recommendation system."
+        steps={steps}
+      />;
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-3xl text-[#111827] mb-2">Popular PGs</h2>
@@ -120,7 +145,7 @@ export function HomePage() {
       <WhyChoose />
 
       <ChatAssistant />
-      
+
       <Footer />
     </div>
   );
