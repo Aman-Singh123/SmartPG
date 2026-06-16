@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-[#111827] to-[#1f2937] text-white mt-20">
+    <footer className="bg-gradient-to-br  from-[#111827] to-[#1f2937] text-white mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1">
@@ -46,11 +46,11 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-gray-400 text-sm">
                 <Phone className="w-4 h-4" />
-                <span>+91 98765 43210</span>
+                <span>+91 7011738397</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400 text-sm">
                 <MapPin className="w-4 h-4" />
-                <span>Bangalore, India</span>
+                <span>Hisar → Haryana → India</span>
               </div>
             </div>
           </div>

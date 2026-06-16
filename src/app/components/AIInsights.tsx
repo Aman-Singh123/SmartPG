@@ -12,7 +12,7 @@ export function AIInsights() {
     {
       icon: MapPin,
       title: "Popular PG Near You",
-      value: "Koramangala, HSR",
+      value: "Hisar, Haryana",
       description: "Top locations this month",
       color: "from-purple-500 to-pink-500",
     },
