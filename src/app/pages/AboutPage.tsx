@@ -6,9 +6,9 @@ import { HowItWorks } from "../components/HowItWorks";
 
 export function AboutPage() {
   const stats = [
-    { icon: Users, label: "Active Users", value: "1,000+" },
+    { icon: Users, label: "Active Users", value: "100+" },
     { icon: Star, label: "Average Rating", value: "4.8/5" },
-    { icon: Shield, label: "Verified PGs", value: "500+" },
+    { icon: Shield, label: "Verified PGs", value: "50+" },
     { icon: TrendingUp, label: "Success Rate", value: "95%" },
   ];
 
