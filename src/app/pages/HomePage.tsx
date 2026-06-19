@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, MapPin, DollarSign, Users, Sparkles , Zap } from "lucide-react";
+import { Search, MapPin, DollarSign, Users, Sparkles, Zap } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { PGCard } from "../components/PGCard";
 import { ChatAssistant } from "../components/ChatAssistant";
@@ -8,8 +8,11 @@ import { AIInsights } from "../components/AIInsights";
 import { WhyChoose } from "../components/WhyChoose";
 import { Footer } from "../components/Footer";
 import { mockPGs } from "../data/mockData";
+import usePg from "../hooks/usePg";
 
 export function HomePage() {
+  const { PgData, loading, error } = usePg();
+  console.log("pg data is ", PgData)
   const steps = [
     {
       icon: Search,
@@ -34,12 +37,12 @@ export function HomePage() {
   const [budget, setBudget] = useState("");
   const [gender, setGender] = useState("Any");
 
-  const aiRecommendedPGs = mockPGs
-    .filter((pg) => pg.aiScore >= 90)
+  const aiRecommendedPGs = PgData
+    .filter((pg:any) => pg.aiScore >= 90)
     .slice(0, 3);
 
-  const popularPGs = mockPGs
-    .sort((a, b) => b.rating - a.rating)
+  const popularPGs = PgData
+    .sort((a:any, b:any) => b.rating - a.rating)
     .slice(0, 3);
 
   return (

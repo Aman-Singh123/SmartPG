@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import useReviews from "../hooks/useReviews";
 
 interface Testimonial {
   id: number;
@@ -38,6 +39,10 @@ const testimonials: Testimonial[] = [
 ];
 
 export function Testimonials() {
+  const { reviews, loading, error } = useReviews();
+  console.log("Reviews are reviews", reviews)
+
+
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center mb-12">
@@ -46,20 +51,15 @@ export function Testimonials() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonials.map((testimonial) => (
+        {reviews.map((testimonial: any) => (
           <div
             key={testimonial.id}
             className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all p-6 border border-gray-100"
           >
             <div className="flex items-center gap-3 mb-4">
-              <ImageWithFallback
-                src={`https://source.unsplash.com/100x100/?${encodeURIComponent(testimonial.image)}`}
-                alt={testimonial.name}
-                className="w-12 h-12 rounded-full object-cover"
-              />
               <div>
-                <div className="text-[#111827]">{testimonial.name}</div>
-                <div className="text-sm text-[#6B7280]">{testimonial.role}</div>
+                <div className="text-[#111827]">{testimonial.reviewerName}</div>
+                <div className="text-sm text-[#6B7280]">{testimonial.profession}</div>
               </div>
             </div>
             <div className="flex items-center gap-1 mb-3">
@@ -67,7 +67,7 @@ export function Testimonials() {
                 <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <p className="text-[#6B7280] leading-relaxed">"{testimonial.feedback}"</p>
+            <p className="text-[#6B7280] leading-relaxed">"{testimonial.review}"</p>
           </div>
         ))}
       </div>

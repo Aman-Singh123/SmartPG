@@ -117,7 +117,7 @@ export function AboutPage() {
             ))}
           </div>
           <p className="text-white text-2xl mt-3">4.8 out of 5 stars</p>
-          <p className="text-blue-100 mt-2">Based on 10,000+ reviews</p>
+          <p className="text-blue-100 mt-2">Based on 100+ reviews</p>
         </div>
       </section>
 
